@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import interiorImg from '../assets/images/photo-17.jpg';
+import clientImg   from '../assets/images/photo-13.jpg';
+---
+
+<section id="sobre-nosotras" class="section-block" style="background-color:var(--color-surface);">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="fade-in">
+        <p class="label-tag" style="color:var(--color-primary); margin-bottom:1.5rem;">Sobre nosotras</p>
+        <span class="section-divider" style="margin-bottom:2.5rem;"></span>
+        <h2 class="heading-xl" style="color:var(--color-on-surface); margin-bottom:2.5rem;">
+          Un espacio<br />para tu mejor<br />versión
+        </h2>
+        <p class="body-lg" style="color:rgba(250,250,250,0.65); margin-bottom:2rem;">
+          Somos <strong style="color:var(--color-on-surface);">Qué Chula Peluquería</strong>, un espacio
+          en el corazón de San Juan dedicado a transformar tu cabello y elevar tu bienestar.
+          Combinamos técnica avanzada con un servicio al cliente excepcional para que
+          cada visita sea una experiencia que recordés.
+        </p>
+        <p class="body-lg" style="color:rgba(250,250,250,0.65);">
+          Nos especializamos en coloración artística, tratamientos de recuperación capilar,
+          alisados y cortes personalizados. Porque tu cabello merece lo mejor.
+        </p>
+      </div>
+
+      <div class="fade-in about-photos">
+        <div class="about-photo-a">
+          <Image src={interiorImg} alt="Interior de Qué Chula Peluquería" loading="lazy" class="img-card" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="about-photo-b">
+          <Image src={clientImg} alt="Resultado de corte en Qué Chula Peluquería" loading="lazy" class="img-card" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 6rem; }
+  }
+  @media (min-width: 1024px) {
+    .about-grid { gap: 8rem; }
+  }
+
+  .about-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 520px;
+  }
+  .about-photo-a { overflow: hidden; height: 100%; }
+  .about-photo-b { overflow: hidden; height: 100%; margin-top: 3rem; }
+</style>

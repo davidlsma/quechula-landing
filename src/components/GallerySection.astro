@@ -1,0 +1,175 @@
+---
+const photos = [
+  '/principal.jpg',
+  '/gallery-2.jpg',
+  '/gallery-3.jpg',
+  '/gallery-4.jpg',
+  '/gallery-5.jpg',
+  '/srv-coloracion.jpg',
+  '/srv-cortes.jpg',
+  '/srv-alisado.jpg',
+  '/srv-tratamiento.jpg',
+];
+---
+
+<section id="galeria" class="section-block" style="background-color:#fff;">
+  <div class="wrap gallery-wrap">
+
+    <div class="fade-in" style="margin-bottom:5rem; text-align:center;">
+      <h2 class="heading-xl" style="color:#ffadd0;">¡Qué galería chula!</h2>
+    </div>
+
+    <!-- Mini sección del local -->
+    <div class="local-section fade-in">
+      <img src="/local-1.jpg" alt="Interior Qué Chula Peluquería" class="local-img" />
+      <h3 class="local-title">Nuestro<br/>local</h3>
+      <img src="/local-2.jpg" alt="Interior Qué Chula Peluquería" class="local-img" />
+    </div>
+
+    <div class="fade-in trabajos-title-wrap">
+      <h3 class="trabajos-title">Trabajos</h3>
+    </div>
+
+    {Array.from({ length: Math.ceil(photos.length / 9) }, (_, gi) => {
+      const group = photos.slice(gi * 9, gi * 9 + 9);
+      const large = group[0];
+      const row1  = group.slice(1, 5);
+      const row2  = group.slice(5, 9);
+      return (
+        <div class="gallery-group fade-in">
+          <div class="gallery-large-row">
+            <div class="gallery-large-logo">
+              <img src="/principal2.jpg" alt="Qué Chula Peluquería" />
+            </div>
+            <div class="gallery-large">
+              <img src={large} alt={`Trabajo de Qué Chula Peluquería ${gi * 9 + 1}`} loading="lazy" />
+            </div>
+          </div>
+          {[row1, row2].map((row, ri) => (
+            <div class="gallery-row">
+              {row.map((photo, si) => (
+                <div class="gallery-small">
+                  <img src={photo} alt={`Trabajo de Qué Chula Peluquería ${gi * 9 + ri * 4 + si + 2}`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+    })}
+
+  </div>
+</section>
+
+<style>
+  .trabajos-title-wrap {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .trabajos-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffadd0;
+  }
+
+  .gallery-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .gallery-large-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .gallery-large-logo {
+    flex: 1;
+    max-width: 45%;
+  }
+  .gallery-large-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gallery-large {
+    flex: 1;
+    overflow: hidden;
+    max-width: 45%;
+  }
+  .gallery-large img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .gallery-small {
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+  .gallery-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-wrap {
+    max-width: 1200px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-row { grid-template-columns: repeat(2, 1fr); }
+    .gallery-large-row { flex-direction: column; }
+    .gallery-large-logo { max-width: 100%; width: 100%; }
+    .gallery-large-logo img { width: 80%; margin: 0 auto; }
+    .gallery-large { max-width: 100%; overflow: visible; }
+  }
+
+  /* ── Local ── */
+  .local-section {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 0.6fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .local-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffadd0;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .local-img {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .local-section { grid-template-columns: 1fr; }
+    .local-img { width: 60%; height: auto; }
+  }
+
+</style>

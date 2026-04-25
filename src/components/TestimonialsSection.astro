@@ -1,0 +1,87 @@
+---
+const productos = [
+  { img: '/producto-new-1.png', nombre: 'Sérum Luminoso' },
+  { img: '/producto-new-2.png', nombre: 'Mascarilla Rosa' },
+  { img: '/producto-new-3.png', nombre: 'Aceite Suave' },
+];
+---
+
+<section class="productos-section">
+  <div class="wrap">
+    <div class="fade-in" style="text-align:center; margin-bottom:3rem;">
+      <h2 class="heading-xl productos-title">Productos</h2>
+    </div>
+  </div>
+
+  <div class="productos-track-wrap">
+    <div class="productos-track">
+      {[...productos, ...productos, ...productos, ...productos, ...productos, ...productos].map((p, i) => (
+        <div class="producto-card">
+          <div class="producto-img-wrap">
+            <img src={p.img} alt={p.nombre} loading="lazy" class="producto-img" />
+          </div>
+          <p class="producto-nombre">{p.nombre}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .productos-section {
+    background-color: #000;
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+  .productos-title {
+    color: #fff;
+  }
+
+  .productos-track-wrap {
+    overflow: hidden;
+  }
+  .productos-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: productoScroll 55s linear infinite;
+  }
+  .productos-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes productoScroll {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+
+  .producto-card {
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .producto-img-wrap {
+    width: 150px;
+    height: 190px;
+    overflow: hidden;
+  }
+  .producto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .producto-card:hover .producto-img {
+    transform: scale(1.05);
+  }
+  .producto-nombre {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+</style>

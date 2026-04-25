@@ -1,0 +1,106 @@
+---
+---
+
+<section id="nosotros" class="nosotros-section">
+  <div class="nosotros-wrap">
+
+    <!-- Columna 1: imagen -->
+    <div class="nosotros-img-col fade-in">
+      <img src="/duena-1.jpg" alt="Victoria Quintero - Qué Chula" class="nosotros-img" />
+    </div>
+
+    <!-- Columna 2: texto -->
+    <div class="nosotros-text fade-in">
+      <h2 class="nosotros-title">Mi historia</h2>
+      <p class="nosotros-desc">
+        Soy Victoria Quintero y llegué a la peluquería casi por casualidad. De chica ya teñía a mi mamá y cortaba el pelo a mis hermanas, pero nunca pensé en estudiarlo formalmente.
+      </p>
+      <p class="nosotros-desc">
+        Un día me anoté en un curso "para ver qué onda" y a mitad del camino supe que esto era lo mío. Trabajé en la peluquería Kala, luego me animé a alquilar mi propio espacio en una estética, y hoy tengo mi lugar.
+      </p>
+      <p class="nosotros-desc">
+        Mi pasión es el color: diseñar, crear y jugar con cada tono. Me encanta cortar, pero lo que más disfruto es la conexión con mis clientas y conocer gente nueva cada día.
+      </p>
+    </div>
+
+    <!-- Columna 3: imagen -->
+    <div class="nosotros-img-col fade-in">
+      <img src="/duena-2.jpg" alt="Victoria Quintero - Qué Chula" class="nosotros-img" />
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .nosotros-section {
+    background-color: #fff;
+    padding: 6rem 0;
+  }
+
+  .nosotros-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  /* ── Imágenes ── */
+  .nosotros-img-col {
+    height: 520px;
+    overflow: hidden;
+  }
+  .nosotros-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ── Texto ── */
+  .nosotros-text {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .nosotros-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .nosotros-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffadd0;
+    line-height: 1.1;
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .nosotros-desc {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  @media (max-width: 900px) {
+    .nosotros-wrap {
+      grid-template-columns: 1fr;
+    }
+    .nosotros-img-col { height: 320px; }
+  }
+</style>

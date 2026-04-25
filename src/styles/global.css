@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary:      #F72585;
+  --color-secondary:    #FF9EC4;
+  --color-surface:      #0A0A0A;
+  --color-surface-low:  #161616;
+  --color-surface-high: #2A2A2A;
+  --color-on-surface:   #FAFAFA;
+  --color-error:        #FF3B3B;
+
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body:    'Barlow', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: 'Barlow', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* ===== NAV ===== */
+#main-nav {
+  border-bottom: none;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+#main-nav.scrolled {
+  backdrop-filter: blur(20px);
+}
+
+/* ===== TIPOGRAFÍA ===== */
+.heading-display {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(4.5rem, 12vw, 12rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.heading-xl {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.heading-lg {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3vw, 3.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.heading-md {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.label-tag {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== IMÁGENES ===== */
+.img-card {
+  filter: grayscale(1);
+  transition: filter 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-card:hover {
+  filter: grayscale(0);
+}
+
+/* ===== MARQUEE ===== */
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  gap: 0;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ===== SEPARADOR ===== */
+.section-divider {
+  width: 3rem;
+  height: 3px;
+  background-color: var(--color-primary);
+  display: block;
+}
+
+/* ===== LAYOUT ===== */
+/*
+ * .wrap   — contenedor centrado con max-width fijo, padding horizontal fluido
+ * .section-block — padding vertical generoso para separar secciones
+ * CSS puro para garantizar comportamiento correcto independiente de Tailwind.
+ */
+.wrap {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.section-block {
+  padding-top: clamp(5rem, 10vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 10rem);
+}

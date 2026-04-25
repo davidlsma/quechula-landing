@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import HeroSection from '../components/HeroSection.astro';
+import MarqueeSection from '../components/MarqueeSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import GallerySection from '../components/GallerySection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import LocationSection from '../components/LocationSection.astro';
+import NosotrosSection from '../components/NosotrosSection.astro';
+import TaglineSection from '../components/TaglineSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FooterSection from '../components/FooterSection.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <main>
+    <HeroSection />
+    <MarqueeSection />
+    <TaglineSection />
+    <MarqueeSection />
+    <NosotrosSection />
+    <MarqueeSection />
+    <ServicesSection />
+    <MarqueeSection />
+    <GallerySection />
+    <MarqueeSection />
+    <TestimonialsSection />
+    <MarqueeSection />
+    <ContactSection />
+    <MarqueeSection />
+    <LocationSection />
+  </main>
+  <FooterSection />
+
+  <script>
+    import('../scripts/scroll-animations');
+  </script>
+</BaseLayout>
